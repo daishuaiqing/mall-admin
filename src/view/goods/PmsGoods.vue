@@ -149,7 +149,7 @@ export default {
           }
         ],
         isOnSale: [
-          { required: true, message: "请输入是否上架", trigger: "blur" }
+          { required: true, type: "number", message: "请输入是否上架", trigger: "blur" }
         ],
         picUrl: [
           { required: true, message: "请输入商品页面商品图片", trigger: "blur" }
