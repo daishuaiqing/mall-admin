@@ -46,7 +46,7 @@
 </style>
 <template>
   <Card class="card">
-    <p slot="title">创建商品</p>
+    <p slot="title">修改商品信息</p>
     <Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="100">
       <FormItem label="商品名称" prop="name">
         <Input v-model="formValidate.name" placeholder="请输入商品名称" style="width: 200px" />
@@ -58,8 +58,8 @@
       </FormItem>
       <FormItem label="是否上架" prop="isOnSale">
         <RadioGroup v-model="formValidate.isOnSale">
-          <Radio :label='1'>是</Radio>
-          <Radio :label='0'>否</Radio>
+          <Radio :label="1">是</Radio>
+          <Radio :label="0">否</Radio>
         </RadioGroup>
       </FormItem>
       <FormItem label="排序" prop="sortOrder">
@@ -149,7 +149,7 @@ export default {
           }
         ],
         isOnSale: [
-          { required: true, message: "请输入是否上架", trigger: "blur" }
+          { required: true, type: "number", message: "请输入是否上架", trigger: "blur" }
         ],
         picUrl: [
           { required: true, message: "请输入商品页面商品图片", trigger: "blur" }
@@ -184,6 +184,7 @@ export default {
     getCatgoryAll().then(res => {
       this.categoryList = res.data.data;
     });
+    this.formValidate = this.$route.params;
   },
   methods: {
     handleView() {
@@ -210,6 +211,7 @@ export default {
               this.$Message.success("成功!");
               console.log(res);
               this.handleReset(name);
+              this.$router.push({ name: 'goodsList'});
             }
           });
         } else {

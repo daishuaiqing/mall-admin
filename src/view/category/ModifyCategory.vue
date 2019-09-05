@@ -8,7 +8,7 @@
 </style>
 <template>
   <Card class="card">
-    <p slot="title">创建分类</p>
+    <p slot="title">编辑分类</p>
     <Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="100">
       <FormItem label="类目名称" prop="name">
         <Input v-model="formValidate.name" placeholder="请输入类目名称" style="width: 200px" />
@@ -37,6 +37,9 @@ export default {
       }
     };
   },
+  created(){
+      this.formValidate = this.$route.params;
+  },
   methods: {
     /**
      * 提交表单数据
@@ -47,8 +50,8 @@ export default {
           create(this.formValidate).then(res => {
             if (res.status === 200) {
               this.$Message.success("成功!");
-              console.log(res);
               this.handleReset(name);
+              this.$router.push({ name: 'categoryList'});
             }
           });
         } else {

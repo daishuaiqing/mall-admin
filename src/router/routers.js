@@ -78,6 +78,15 @@ export default [
         component: () => import('@/view/category/PmsCategory.vue')
       },
       {
+        path: '/modifyCategory',
+        name: 'modifyCategory',
+        meta: {
+          title: '修改分类',
+          hideInMenu: true
+        },
+        component: () => import('@/view/category/ModifyCategory.vue')
+      },
+      {
         path: '/categoryList',
         name: 'categoryList',
         meta: {
@@ -105,6 +114,15 @@ export default [
           title: '创建商品'
         },
         component: () => import('@/view/goods/PmsGoods.vue')
+      },
+      {
+        path: '/modifyGoods',
+        name: 'modifyGoods',
+        meta: {
+          title: '编辑商品',
+          hideInMenu: true
+        },
+        component: () => import('@/view/goods/ModifyGoods.vue')
       },
       {
         path: '/goodsList',
