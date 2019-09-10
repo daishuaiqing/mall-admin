@@ -121,7 +121,7 @@
   </Card>
 </template>
 <script>
-import { create } from "@/api/goods";
+import { modify } from "@/api/goods";
 import { getCatgoryAll } from "@/api/category";
 export default {
   data() {
@@ -206,7 +206,7 @@ export default {
       console.log(this.formValidate);
       this.$refs[name].validate(valid => {
         if (valid) {
-          create(this.formValidate).then(res => {
+          modify(this.formValidate).then(res => {
             if (res.status === 200) {
               this.$Message.success("成功!");
               console.log(res);

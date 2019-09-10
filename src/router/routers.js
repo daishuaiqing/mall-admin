@@ -135,6 +135,44 @@ export default [
       }
     ]
   },
+  {
+    path: '/order',
+    name: 'order',
+    component: Main,
+    meta: {
+      icon: 'logo-buffer',
+      title: '订单管理'
+    },
+    children: [
+      {
+        path: '/orderList',
+        name: 'orderList',
+        meta: {
+          icon: '_qq',
+          title: '订单列表'
+        },
+        component: () => import('@/view/order/OmsOrderList.vue')
+      },
+      {
+        path: '/orderBack',
+        name: 'orderBack',
+        meta: {
+          icon: '_qq',
+          title: '申请退款'
+        },
+        component: () => import('@/view/order/OmsOrderList.vue')
+      },
+      {
+        path: '/orderInfo',
+        name: 'orderInfo',
+        meta: {
+          title: '订单详情',
+          hideInMenu: true
+        },
+        component: () => import('@/view/order/OmsOrder.vue')
+      }
+    ]
+  },
   // {
   //   path: '/join',
   //   name: 'join',
