@@ -173,6 +173,35 @@ export default [
       }
     ]
   },
+  {
+    path: '/user',
+    name: 'user',
+    component: Main,
+    meta: {
+      icon: 'logo-buffer',
+      title: '用户管理'
+    },
+    children: [
+      {
+        path: '/userList',
+        name: 'userList',
+        meta: {
+          icon: '_qq',
+          title: '用户列表'
+        },
+        component: () => import('@/view/user/UmsUserList.vue')
+      },
+      {
+        path: '/userAnalyse',
+        name: 'userAnalyse',
+        meta: {
+          icon: '_qq',
+          title: '用户分析'
+        },
+        component: () => import('@/view/user/UmsUserList.vue')
+      }
+    ]
+  },
   // {
   //   path: '/join',
   //   name: 'join',

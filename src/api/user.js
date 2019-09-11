@@ -1,5 +1,13 @@
 import axios from '@/libs/api.request'
 
+export const getList = (info) => {
+  return axios.request({
+    url: '/ums/user/list',
+    params: info,
+    method: 'get'
+  })
+}
+
 export const login = ({ userName, password }) => {
   const data = {
     userName,
