@@ -17,7 +17,8 @@ export default {
    * @description api请求基础路径
    */
   baseUrl: {
-    dev: 'http://127.0.0.1:9999',
+    //dev: 'http://127.0.0.1:9999',
+    dev: 'https://mmapi.dival.cn',
     pro: 'https://produce.com'
   },
   /**

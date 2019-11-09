@@ -78,7 +78,7 @@
         </template>
         <template v-if="formValidate.picUrl === ''">
           <Upload
-            action="//localhost:9999/upload/image"
+            :action="actionUrl"
             name="image"
             style="width: 60px;height: 60px;text-align: center;line-height: 60px;border: 1px dashed #dcdee2;"
             :max-size="2048"
@@ -123,9 +123,12 @@
 <script>
 import { create } from "@/api/goods";
 import { getCatgoryAll } from "@/api/category";
+import config from '@/config'
+const baseUrl = process.env.NODE_ENV === 'development' ? config.baseUrl.dev : config.baseUrl.pro
 export default {
   data() {
     return {
+      actionUrl: baseUrl+'/upload/image',
       visible: false,
       categoryList: [],
       formValidate: {
